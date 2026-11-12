@@ -1,7 +1,7 @@
 run: compile
-	./div.out datasets
+	./div datasets
 
 compile:
-	gcc -o div.out -ltiff divider.c -g
+	gcc -o div -ltiff divider.c -g
 
 .PHONY: run 
