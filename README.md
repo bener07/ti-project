@@ -7,7 +7,7 @@ Projeto realizado no âmbito da disciplina de TI com o objetivo de analisar e cr
   * [Algoritmos de Compressão](#algoritmos-de-compressão)
 * [2. Fase de implementação](#fase-de-implementação)
 
-## Fase de investigação
+# Fase de investigação
  Pretende-se a realização de uma análise estatística de ficheiros de imagens do tipo TIFF. Para começar espera-se análisar os diferentes dados de teste. Isto é:
  - Análise da entropia do ficheiro
  - Análise de entropia conjunta das imagens
@@ -18,7 +18,7 @@ Projeto realizado no âmbito da disciplina de TI com o objetivo de analisar e cr
  É natural que o passo seguinte seja a pesquisa e investigação de algoritmos de compressão adaptados à nossa amostra de dados daí estar referido que algoritmos foram usados e investigados neste projeto na secção [Algoritmos de Compressão](#algoritmos-compressão)
 
 
-### Programa Divider
+## Programa Divider
  A pedido do Professor, foi feito um programa para a divisão dos dados de teste (aconselhável criar uma pasta com o nome "datasets" que contenha apenas ficheiros tiff). Para compilar o ficheiro é apenas necessário usar o Makefile disponibilizado no presente repositório, como exemplificado no excerto de código abaixo. O Makefile está configurado para procurar na pasta `datasets` por todos os ficheiros tiff e dividi-los em dois conjuntos. Os de __test__ e os de __dev__, esta divisão é feita aleatóriamente.
 ```bash
 make run
@@ -31,6 +31,6 @@ make run
 ./div <folder>
 ```
 
-### Algoritmos de Compressão
-## Fase de Implementação
+## Algoritmos de Compressão
+# Fase de Implementação
 (Ainda nada)
