@@ -15,7 +15,6 @@ Projeto realizado no âmbito da disciplina de TI, com o objetivo de analisar e c
  - Análise de possíveis modelos matemáticos das imagens
  - Análise de padrões nas imagens.<br>
  **Atenção**: _imagens_ refere-se à constituição binária do ficheiro e não ao efeito visual interpretado por humanos.
->>>>>>> upstream/main
 
  É natural que o passo seguinte seja a pesquisa e investigação de algoritmos de compressão adaptados à nossa amostra de dados, por conseguinte, encontra-se referido os algoritmos usados e investigados neste projeto, na secção [Algoritmos de Compressão](#algoritmos-compressão)
 
@@ -23,7 +22,6 @@ Projeto realizado no âmbito da disciplina de TI, com o objetivo de analisar e c
 ## Programa Divider
 =======
  A pedido do Professor, foi feito um programa para a divisão dos dados de teste (aconselhável criar uma pasta com o nome "datasets" que contenha apenas ficheiros tiff). Para compilar o ficheiro é apenas necessário usar o Makefile disponibilizado no presente repositório, como exemplificado no excerto de código abaixo. O Makefile está configurado para procurar na pasta `datasets` por todos os ficheiros tiff e dividi-los em dois conjuntos. Os de _test_ e os de _dev_, esta divisão é feita aleatóriamente.
->>>>>>> upstream/main
 ```bash
 make run
 ```
