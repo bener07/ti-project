@@ -11,7 +11,6 @@ Projeto realizado no âmbito da disciplina de TI, com o objetivo de analisar e c
  Pretende-se a realização de uma análise estatística de ficheiros de imagens do tipo TIFF. Para começar, procedemos à análise dos diferentes dados de teste. Isto é:
  - Análise da entropia do ficheiro
  - Análise de entropia conjunta das imagens
-=======
  - Análise de possíveis modelos matemáticos das imagens
  - Análise de padrões nas imagens.<br>
  **Atenção**: _imagens_ refere-se à constituição binária do ficheiro e não ao efeito visual interpretado por humanos.
