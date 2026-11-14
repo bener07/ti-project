@@ -12,14 +12,14 @@ Projeto realizado no âmbito da disciplina de TI com o objetivo de analisar e cr
  - Análise da entropia do ficheiro
  - Análise de entropia conjunta das imagens
  - Análise de possíveis modelos matemáticos das imagens
- - Análise de padrões nas imagens.
- **Atenção**: __imagens__ refere-se à constituição binária do ficheiro e não ao efeito visual interpretado por humanos.
+ - Análise de padrões nas imagens.<br>
+ **Atenção**: _imagens_ refere-se à constituição binária do ficheiro e não ao efeito visual interpretado por humanos.
 
  É natural que o passo seguinte seja a pesquisa e investigação de algoritmos de compressão adaptados à nossa amostra de dados daí estar referido que algoritmos foram usados e investigados neste projeto na secção [Algoritmos de Compressão](#algoritmos-compressão)
 
 
 ## Programa Divider
- A pedido do Professor, foi feito um programa para a divisão dos dados de teste (aconselhável criar uma pasta com o nome "datasets" que contenha apenas ficheiros tiff). Para compilar o ficheiro é apenas necessário usar o Makefile disponibilizado no presente repositório, como exemplificado no excerto de código abaixo. O Makefile está configurado para procurar na pasta `datasets` por todos os ficheiros tiff e dividi-los em dois conjuntos. Os de __test__ e os de __dev__, esta divisão é feita aleatóriamente.
+ A pedido do Professor, foi feito um programa para a divisão dos dados de teste (aconselhável criar uma pasta com o nome "datasets" que contenha apenas ficheiros tiff). Para compilar o ficheiro é apenas necessário usar o Makefile disponibilizado no presente repositório, como exemplificado no excerto de código abaixo. O Makefile está configurado para procurar na pasta `datasets` por todos os ficheiros tiff e dividi-los em dois conjuntos. Os de _test_ e os de _dev_, esta divisão é feita aleatóriamente.
 ```bash
 make run
 ```
