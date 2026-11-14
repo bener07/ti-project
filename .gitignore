@@ -1,9 +1,12 @@
 datasets
 TP2.pdf
 .DS_STORE
+compile_flags.txt
+divider-rafa.c
 dev.tiff
 test.tiff
 test.*
 div
 anaconda_projects
 .ipynb_checkpoints
+Makefile
