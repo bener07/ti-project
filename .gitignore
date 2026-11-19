@@ -6,7 +6,6 @@ divider-rafa.c
 dev.tiff
 test.tiff
 test.*
-div
+divider
 anaconda_projects
 .ipynb_checkpoints
-Makefile
