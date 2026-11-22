@@ -51,7 +51,7 @@ int is_tiff(const struct dirent * file)
     // Retorna 0, se o nome do ficheiro for "dev.tiff" ou "test.tiff"
     if (strcmp(file->d_name, "dev.tiff") == 0 || strcmp(file->d_name, "test.tiff") == 0) { return 0; }
     // Retorna 0, se o nome do ficheiro não possuir o caractére "."
-    char * dot = strrchr(file->d_name, '.');
+    char *dot = strrchr(file->d_name, '.');
     if(dot == NULL){ return 0; }
     // Retorna 0, se após (inclusive) o último caractére ".", o resto do nome do ficheiro não for ".tiff" ou ".tif"
     return strcasecmp(dot, ".tif") == 0 ||strcasecmp(dot, ".tiff") == 0;
@@ -73,12 +73,12 @@ int copy_page(TIFF * in, TIFF * out)
 {
     /* Variáveis onde guardamos as propriedades da imagem:
      * - width e height: largura e altura da imagem, em píxeis
-     * - bits: número de bits por cada componente de cor de um píxel
-     * - samples: número de componentes de cor por píxel (por exemplo, 3 para RGB, 1 para Greyscale)
-     * - compression: tipo de compressão usada nos dados da imagem
-     * - planar: forma como as componentes de cor estão organizadas
+     * - bits: número de bits por cada componente de cor de um píxel //& aka quantization
+     * - samples: número de componentes de cor por píxel (por exemplo, 3 para RGB, 1 para Greyscale) //& é necessário ter este dado para analisar os ficheiros
+     * - compression: tipo de compressão usada nos dados da imagem  //& guardar este dado para determinar se é um ficheiro comprimido ou não
+     * - planar: forma como as componentes de cor estão organizadas //& também é conveniente ter em conta
      * - rows_per_strip: número de linhas da imagem que cada "strip" (faixa) contém
-     * - photometric: interpretação das cores (preto e branco, RGB, etc.)
+     * - photometric: interpretação das cores (preto e branco, RGB, etc.) //& conveniente ter em conta
      * Os tipos das variáveis têm de ser exatamente os que a "library" "libtiff" usa para cada propriedade */
     uint32_t width, height, rows_per_strip;
     uint16_t bits, samples, compression, planar;
@@ -108,7 +108,18 @@ int copy_page(TIFF * in, TIFF * out)
     TIFFSetField(out, TIFFTAG_PLANARCONFIG, planar);
     TIFFSetField(out, TIFFTAG_ROWSPERSTRIP, rows_per_strip);
     TIFFSetField(out, TIFFTAG_PHOTOMETRIC, photometric);
-
+    // apresentar aos dados
+    printf("Dados da imagem:\n"
+       "\t- width*height: %" PRIu32 "*%" PRIu32 "\n"
+       "\t- quantization (bits per color component): %u\n"
+       "\t- samples (color components per pixel): %u\n"
+       "\t- compression: %u\n"
+       "\t- planar configuration: %u\n"
+       "\t- rows per strip: %" PRIu32 "\n"
+       "\t- photometric interpretation: %u\n",
+       width, height,
+       bits, samples, compression, planar,
+       rows_per_strip, photometric);
     /* Copiamos os píxeis da imagem, uma "strip" de cada vez
      * - strip_size: tamanho (em bytes) de uma "strip" descomprimida
      * - buffer: espaço de memória onde guardamos a "strip" que estamos a copiar */
@@ -169,16 +180,17 @@ int add_file(TIFF * out, const char * path)
 
 int main(int argc, char *argv[])
 {
-    srand(time(NULL));
 
     // Para avançar, precisamos do "path" (localização da pasta) da pasta onde estão os ficheiros
-    if (argc != 2)
+    if (argc != 3)
     {
-        fprintf(stderr, "Usage: %s <path_to_directory>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <path_to_directory> <seed>\n", argv[0]);
         return 1;
     }
 
     char * path = argv[1];
+    int random_seed = atoi(argv[2]);
+    srand(random_seed);
 
     /* - struct dirent: estrutura da "library" "dirent.h", usamo-la para aceder aos ficheiros da pasta
      * - files: lista com os ficheiros ".tiff" da pasta, criada pelo scandir()
