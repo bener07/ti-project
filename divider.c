@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
     }
 
     char * path = argv[1];
-    int random_seed = atoi(argv[2]);
+    int random_seed = atoi(argv[2]); // usei 3
     srand(random_seed);
 
     /* - struct dirent: estrutura da "library" "dirent.h", usamo-la para aceder aos ficheiros da pasta
